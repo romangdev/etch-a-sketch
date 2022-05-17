@@ -56,3 +56,7 @@ table {
 .grid-square {
     border: 1px red solid;
 }
+
+.hover {
+    background-color: black;
+}
