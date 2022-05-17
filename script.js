@@ -1,4 +1,5 @@
 let grid = document.querySelector(".grid");
+let button = document.querySelector("button");
 
 //produce 256 squares for 16x16 grid
 function produceGridSquares() {
@@ -18,6 +19,17 @@ function fillSquare() {
     });
 }
 
+function getUserSquareCount() {
+    button.addEventListener("click", (button) => {
+        let squaresPerSide = 0
+        do {
+            squaresPerSide = prompt("How many squares per side do you want?"
+            + " (Choose number between 1 - 100)");
+        } while (squaresPerSide < 1 || squaresPerSide > 100);
+    });
+}
+
+getUserSquareCount()
 produceGridSquares();
 
 let squares = document.querySelectorAll(".grid-square");
