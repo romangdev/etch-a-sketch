@@ -47,11 +47,11 @@ table {
 	border-spacing: 0;
 }
 
-.grid {
+/* .grid {
     height: 100vh;
     display: grid;
     grid-template: repeat(16, 1fr) / repeat(16, 1fr);
-}
+} */
 
 .grid-square {
     border: 1px red solid;

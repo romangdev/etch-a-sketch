@@ -27,6 +27,8 @@ function getUserSquareCount() {
             + " (Choose number between 1 - 100)");
         } while (squareCount < 1 || squareCount > 100);
         removeGrid();
+        grid.setAttribute("style", `height: 100vh; display: grid;
+        grid-template: repeat(${squareCount}, 1fr) / repeat(${squareCount}, 1fr);`);
     });
 }
 
@@ -37,11 +39,22 @@ function removeGrid() {
     });
 }
 
+function setStartingGrid() {
+    grid.setAttribute("style", `height: 100vh; display: grid;
+     grid-template: repeat(16, 1fr) / repeat(16, 1fr);`);
+}
+
+// function setUserGrid() {
+//     grid.setAttribute("style", `height: 100vh; display: grid;
+//     grid-template: repeat(${}, 1fr) / repeat(${}, 1fr);`);
+// }
+
+setStartingGrid();
 produceGridSquares();
 
 let squares = document.querySelectorAll(".grid-square");
 
 fillSquare();
-getUserSquareCount();
+let userSquareCount = getUserSquareCount();
 
 
