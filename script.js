@@ -21,15 +21,10 @@ function fillSquare() {
 }
 
 function getUserSquareCount() {
-    button.addEventListener("click", (button) => {
         do {
             squareCount = prompt("How many squares per side do you want?"
             + " (Choose number between 1 - 100)");
         } while (squareCount < 1 || squareCount > 100);
-        removeGrid();
-        grid.setAttribute("style", `height: 100vh; display: grid;
-        grid-template: repeat(${squareCount}, 1fr) / repeat(${squareCount}, 1fr);`);
-    });
 }
 
 function removeGrid() {
@@ -44,17 +39,32 @@ function setStartingGrid() {
      grid-template: repeat(16, 1fr) / repeat(16, 1fr);`);
 }
 
-// function setUserGrid() {
-//     grid.setAttribute("style", `height: 100vh; display: grid;
-//     grid-template: repeat(${}, 1fr) / repeat(${}, 1fr);`);
-// }
+function setUserGrid(squareCount) {
+    grid.setAttribute("style", `height: 100vh; display: grid;
+    grid-template: repeat(${squareCount}, 1fr) / repeat(${squareCount}, 1fr);`);
+}
+
+function addUserSquares() {
+    squareCount *= squareCount;
+    for (let i = 0; i < squareCount; i++) {
+        let gridSquare = document.createElement("div");
+        gridSquare.classList.add("grid-square");
+        grid.appendChild(gridSquare);
+    }
+}
 
 setStartingGrid();
 produceGridSquares();
 
 let squares = document.querySelectorAll(".grid-square");
 
+button.addEventListener("click", (button) => {
+    getUserSquareCount();
+    removeGrid();
+    setUserGrid(squareCount);
+    addUserSquares();
+});
+
 fillSquare();
-let userSquareCount = getUserSquareCount();
 
 
