@@ -35,12 +35,12 @@ function removeGrid() {
 }
 
 function setStartingGrid() {
-    grid.setAttribute("style", `height: 100vh; display: grid;
+    grid.setAttribute("style", `height: 96.9vh; display: grid;
      grid-template: repeat(16, 1fr) / repeat(16, 1fr);`);
 }
 
 function setUserGrid(squareCount) {
-    grid.setAttribute("style", `height: 100vh; display: grid;
+    grid.setAttribute("style", `height: 96.9vh; display: grid;
     grid-template: repeat(${squareCount}, 1fr) / repeat(${squareCount}, 1fr);`);
 }
 
@@ -57,14 +57,16 @@ setStartingGrid();
 produceGridSquares();
 
 let squares = document.querySelectorAll(".grid-square");
+fillSquare();
 
 button.addEventListener("click", (button) => {
     getUserSquareCount();
     removeGrid();
     setUserGrid(squareCount);
     addUserSquares();
+    squares = document.querySelectorAll(".grid-square");
+    fillSquare();
 });
 
-fillSquare();
 
 
