@@ -44,7 +44,7 @@ function getUserSquareCount() {
                 return;
             }
             handleUserError(squareCount);
-        } while (squareCount < 1 || squareCount > 100);
+        } while (squareCount < 1 || squareCount > 100 || Number.isNaN(squareCount) === true);
 }
 
 //end prompt when user cancels or just presses "ok"
@@ -56,11 +56,8 @@ function handleUserCancel(squareCount) {
 
 //alert user when they've entered a non-number, or a number out of range
 function handleUserError(squareCount) {
-    console.log(`squareCount is: ${squareCount}`);
-    console.log(`squareCount type is: ${typeof(squareCount)}`);
     if (Number.isNaN(squareCount) === true) {
         alert("Your input was not a number. Please try again.");
-        return;
     }
     squareCount = Number(squareCount);
     if (squareCount < 1 || squareCount > 100) {
