@@ -13,6 +13,7 @@ function produceGridSquares() {
 
 let squareBrightness = 100;
 //fill an individual square when mouse hovers over it permenantly
+//output random RGB color value fill, make 5% darker each passover
 function fillSquare() {
     squares.forEach((square) => {
         square.addEventListener("mouseover", () => {
@@ -29,7 +30,9 @@ function fillSquare() {
 }
 
 //prompt user to enter squares per side of grid they desire
+//reset squareBrightness variable if this func is called
 function getUserSquareCount() {
+    squareBrightness = 100;
         do {
             squareCount = prompt("How many squares per side do you want?"
             + " (Choose number between 1 - 100)");
