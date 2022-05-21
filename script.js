@@ -44,12 +44,14 @@ function getUserSquareCount() {
         } while (squareCount < 1 || squareCount > 100);
 }
 
+//end prompt when user cancels or just presses "ok"
 function handleUserCancel(squareCount) {
     if (squareCount === 0) {
         return 0;
     }
 }
 
+//alert user when they've entered a non-number, or a number out of range
 function handleUserError(squareCount) {
     console.log(`squareCount is: ${squareCount}`);
     console.log(`squareCount type is: ${typeof(squareCount)}`);
