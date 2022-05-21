@@ -34,10 +34,13 @@ function fillSquare() {
 function getUserSquareCount() {
     squareBrightness = 100;
         do {
-            squareCount = Number(prompt("How many squares per side do you want?"
-            + " (Choose number between 1 - 100)"));
+            squareCount = prompt("How many squares per side do you want?"
+            + " (Choose number between 1 - 100)");
+            if (squareCount !== null) {
+                squareCount = Number(squareCount);
+            }
             let check = handleUserCancel(squareCount);
-            if (check === 0) {
+            if (check === null) {
                 return;
             }
             handleUserError(squareCount);
@@ -46,8 +49,8 @@ function getUserSquareCount() {
 
 //end prompt when user cancels or just presses "ok"
 function handleUserCancel(squareCount) {
-    if (squareCount === 0) {
-        return 0;
+    if (squareCount === null) {
+        return null;
     }
 }
 
