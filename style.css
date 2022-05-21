@@ -47,11 +47,23 @@ table {
 	border-spacing: 0;
 }
 
-/* .grid {
-    height: 100vh;
-    display: grid;
-    grid-template: repeat(16, 1fr) / repeat(16, 1fr);
-} */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    width: 225px;
+    height: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(173, 23, 23);
+    color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+}
 
 .grid-square {
     border: 1px red solid;

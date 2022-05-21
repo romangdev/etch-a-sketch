@@ -49,14 +49,15 @@ function removeGrid() {
 
 //show the initial grid
 function setStartingGrid() {
-    grid.setAttribute("style", `height: 96.9vh; display: grid;
-     grid-template: repeat(16, 1fr) / repeat(16, 1fr);`);
+    grid.setAttribute("style", `height: 96.9vh; display: grid; 
+    grid-template: repeat(16, 1fr) / repeat(16, 1fr); width: 100%`);
 }
 
 //show the user grid
 function setUserGrid(squareCount) {
     grid.setAttribute("style", `height: 96.9vh; display: grid;
-    grid-template: repeat(${squareCount}, 1fr) / repeat(${squareCount}, 1fr);`);
+    grid-template: repeat(${squareCount}, 1fr) / repeat(${squareCount}, 1fr);
+    width: 100%;`);
 }
 
 //add number of squares needed to fill user grid
@@ -90,6 +91,15 @@ button.addEventListener("click", (button) => {
     addUserSquares();
     squares = document.querySelectorAll(".grid-square");
     fillSquare();
+});
+
+button.addEventListener("mouseover", () => {
+    button.setAttribute("style", `background-color: rgb(255, 0, 0);
+    border: 3px solid black`);
+});
+
+button.addEventListener("mouseout", () => {
+    button.setAttribute("style", "background-color: rgb(173, 23, 23);");
 });
 
 
