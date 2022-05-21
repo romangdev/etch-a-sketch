@@ -11,14 +11,19 @@ function produceGridSquares() {
     }
 }
 
+let squareBrightness = 100;
 //fill an individual square when mouse hovers over it permenantly
 function fillSquare() {
     squares.forEach((square) => {
         square.addEventListener("mouseover", () => {
+            if (squareBrightness !== 0) {
+                squareBrightness = squareBrightness - 5;
+            }
             let rand1 = randomRGB();
             let rand2 = randomRGB();
             let rand3 = randomRGB();
-            square.setAttribute("style", `background-color: rgb(${rand1}, ${rand2}, ${rand3}`);
+            square.setAttribute("style", `background-color: rgb(${rand1}, ${rand2}, ${rand3}); 
+            filter: brightness(${squareBrightness}%);`);
         });
     });
 }
