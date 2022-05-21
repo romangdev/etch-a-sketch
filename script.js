@@ -36,7 +36,28 @@ function getUserSquareCount() {
         do {
             squareCount = prompt("How many squares per side do you want?"
             + " (Choose number between 1 - 100)");
+            let check = handleUserCancel(squareCount);
+            if (check === null) {
+                return;
+            }
+            handleUserError(squareCount);
         } while (squareCount < 1 || squareCount > 100);
+}
+
+function handleUserCancel(squareCount) {
+    if (squareCount === null) {
+        return null;
+    }
+}
+
+function handleUserError(squareCount) {
+    if (squareCount === NaN) {
+        alert("Nan!")
+        return;
+    }
+    else if (squareCount < 1 || squareCount > 100) {
+        alert("Your number was not in range. Please try again.");
+    }
 }
 
 //remove the entire grid
