@@ -15,11 +15,15 @@ function produceGridSquares() {
 function fillSquare() {
     squares.forEach((square) => {
         square.addEventListener("mouseover", () => {
-            square.setAttribute("style", "background-color: black");
+            let rand1 = randomRGB();
+            let rand2 = randomRGB();
+            let rand3 = randomRGB();
+            square.setAttribute("style", `background-color: rgb(${rand1}, ${rand2}, ${rand3}`);
         });
     });
 }
 
+//prompt user to enter squares per side of grid they desire
 function getUserSquareCount() {
         do {
             squareCount = prompt("How many squares per side do you want?"
@@ -27,6 +31,7 @@ function getUserSquareCount() {
         } while (squareCount < 1 || squareCount > 100);
 }
 
+//remove the entire grid
 function removeGrid() {
     const squaresRemoved = document.querySelectorAll(".grid-square");
     squaresRemoved.forEach((squareRemoved) => {
@@ -34,16 +39,19 @@ function removeGrid() {
     });
 }
 
+//show the initial grid
 function setStartingGrid() {
     grid.setAttribute("style", `height: 96.9vh; display: grid;
      grid-template: repeat(16, 1fr) / repeat(16, 1fr);`);
 }
 
+//show the user grid
 function setUserGrid(squareCount) {
     grid.setAttribute("style", `height: 96.9vh; display: grid;
     grid-template: repeat(${squareCount}, 1fr) / repeat(${squareCount}, 1fr);`);
 }
 
+//add number of squares needed to fill user grid
 function addUserSquares() {
     squareCount *= squareCount;
     for (let i = 0; i < squareCount; i++) {
@@ -51,6 +59,14 @@ function addUserSquares() {
         gridSquare.classList.add("grid-square");
         grid.appendChild(gridSquare);
     }
+}
+
+//return random number between 0 - 255 specifically for RGB value in fillsquare function
+function randomRGB() {
+    let random = Math.random();
+    random = Math.floor(random * 255);
+    console.log
+    return random;
 }
 
 setStartingGrid();
