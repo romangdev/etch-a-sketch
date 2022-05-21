@@ -75,8 +75,8 @@ function removeGrid() {
 
 //show the initial grid
 function setStartingGrid() {
-    grid.setAttribute("style", `height: 96.9vh; display: grid; 
-    grid-template: repeat(16, 1fr) / repeat(16, 1fr); width: 100%`);
+    grid.setAttribute("style", `display: grid; height: 96.9vh;
+    grid-template: repeat(16, 1fr) / repeat(16, 1fr); width: 100%;`);
 }
 
 //show the user grid
