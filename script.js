@@ -34,10 +34,10 @@ function fillSquare() {
 function getUserSquareCount() {
     squareBrightness = 100;
         do {
-            squareCount = prompt("How many squares per side do you want?"
-            + " (Choose number between 1 - 100)");
+            squareCount = Number(prompt("How many squares per side do you want?"
+            + " (Choose number between 1 - 100)"));
             let check = handleUserCancel(squareCount);
-            if (check === null) {
+            if (check === 0) {
                 return;
             }
             handleUserError(squareCount);
@@ -45,17 +45,20 @@ function getUserSquareCount() {
 }
 
 function handleUserCancel(squareCount) {
-    if (squareCount === null) {
-        return null;
+    if (squareCount === 0) {
+        return 0;
     }
 }
 
 function handleUserError(squareCount) {
-    if (squareCount === NaN) {
-        alert("Nan!")
+    console.log(`squareCount is: ${squareCount}`);
+    console.log(`squareCount type is: ${typeof(squareCount)}`);
+    if (Number.isNaN(squareCount) === true) {
+        alert("Your input was not a number. Please try again.");
         return;
     }
-    else if (squareCount < 1 || squareCount > 100) {
+    squareCount = Number(squareCount);
+    if (squareCount < 1 || squareCount > 100) {
         alert("Your number was not in range. Please try again.");
     }
 }
